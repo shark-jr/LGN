@@ -4,6 +4,21 @@
 <%= @user.email %>
 <%= @user.country %>
 <%= @user.zip %>
+<%= @user.address %>
+<%= @user.state %>
 <%= @user.bio %>
 <%= @user.dob %>
 <%= @user.steam %>
+<%= @user.xbox %>
+<%= @user.psn %>
+<%= @user.fb %>
+<%= @user.twitch %>
+
+
+<% if current_user %>
+  <% if current_user.id == @user.id %>
+    <%= link_to "Edit", "#{current_user.id}/edit" %>
+  <% end %>
+<% else %>
+  <%= flash[:notice] = "Sign in to edit" %>
+<% end %>
