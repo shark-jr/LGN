@@ -12,8 +12,21 @@
 <%= @user.xbox %>
 <%= @user.psn %>
 <%= @user.fb %>
-<%= @user.twitch %>
+<%= @user.twitch %><br />
 
+<% @games.each do |game|%>
+  <table>
+    <th>
+      Game
+    </th> <br />
+    <tbody>
+      <td><br />
+          <%= game.title %> <br />
+        <img src="<%=game.image%>" alt="game logo" width="100px"/>
+      </td>
+    </tbody>
+  </table>
+<% end %>
 
 <% if current_user %>
   <% if current_user.id == @user.id %>
