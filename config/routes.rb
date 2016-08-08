@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
 
   # messageing
+  mount ActionCable.server => '/cable'
   resources :rooms
   # get 'rooms/show'
   get '/rooms/show' => 'rooms#show', as: 'speakeasies'
