@@ -31,6 +31,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
   #if current_user is host
     respond_to do |format|
       if @event.update(event_params)
@@ -45,7 +48,7 @@ class EventsController < ApplicationController
 
     private
   def event_params
-    params.require(:event).permit(:name, :description, :date, :time, :address, :city, :state, :zip, :country, :host)
+    params.require(:event).permit(:name, :description, :date, :time, :address, :city, :state, :zip, :country)
   end
   def set_event
     @event = Event.find(params[:id])
