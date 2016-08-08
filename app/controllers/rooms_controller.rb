@@ -1,7 +1,9 @@
 class RoomsController < ApplicationController
-  def show
+  before_action :authenticate_user!
 
-    # TODO: paginate/limit messages show
+  def show
     @messages = Message.all
   end
+
 end
+# TODO: paginate/limit messages show

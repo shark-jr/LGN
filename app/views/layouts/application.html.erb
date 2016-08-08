@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lgn</title>
+    <!-- <title>LGN - LocalGamersNetwork</title> -->
+    <title><%= content_for?(:title) ? yield(:title) : 'ActionCable Chat' %></title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google-Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900'
+          rel='stylesheet' type='text/css'>
   </head>
 
   <body>
-
-    <%if !user_signed_in?%>
-      <%=link_to "Sign in", new_user_session_path%><br>
-      <%=link_to "Sign up", new_user_registration_path%><br>
+    <!-- TODO: Take links out of here and put them in a header _partial  -->
+    <!-- <%if !user_signed_in?%>
+    <%=link_to "Sign in", new_user_session_path%><br>
+    <%=link_to "Sign up", new_user_registration_path%><br>
     <%else%>
-      <%=link_to "Sign out", destroy_user_session_path, method: :delete%><br>
+    <%=link_to "Sign out", destroy_user_session_path, method: :delete%><br>
     <%end%>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p> -->
+
     <%= yield %>
   </body>
 </html>

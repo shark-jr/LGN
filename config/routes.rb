@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :locations
+  # TODO: Make home.html.erb and change root to home#index
   root 'users#index'
   devise_for :users
   resources :users
@@ -10,13 +11,12 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/:id/edit' => 'users#edit'
 
-  # messageing
-  mount ActionCable.server => '/cable'
-  resources :rooms
-  # get 'rooms/show'
-  get '/rooms/show' => 'rooms#show', as: 'speakeasies'
+  # messaging
+  get 'rooms/show'
+  # get '/rooms/show' => 'rooms#show', as: '/chats'
 
 
-  # TODO: rouete  chat by id like below
+  # TODO: route  chat by id like below
   # get '/rooms/:id' => 'rooms#show', as: 'chats'
+  mount ActionCable.server => '/cable'
 end
