@@ -3,3 +3,22 @@
 <%= render 'form', location: @location %>
 
 <%= link_to 'Back', locations_path %>
+
+<div id="demo">
+
+</div>
+<script>
+var x = document.getElementById("location_latitude");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<!-- add to js file (document).ready-->

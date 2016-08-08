@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:show]
 
   # GET /locations
   # GET /locations.json
@@ -62,6 +63,10 @@ class LocationsController < ApplicationController
   end
 
   private
+
+    def set_users
+      @users = User.all
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = Location.find(params[:id])
