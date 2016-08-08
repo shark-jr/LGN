@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
+
   resources :locations
   root 'users#index'
   devise_for :users
