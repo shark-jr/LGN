@@ -12,12 +12,20 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+        @event.users << current_user
+          if @event.events_users.first.user_id == current_user.id
+             @event.events_users.first.update(is_host: true)
+          end
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
 
+  end
+
+  def going
+    @event.users << current_user
   end
 
   def index
@@ -28,6 +36,11 @@ class EventsController < ApplicationController
   end
 
   def delete
+    @event.destroy
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def edit

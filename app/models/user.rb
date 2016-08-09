@@ -10,6 +10,7 @@ class User < ApplicationRecord
             length: {minimum: 3, maximum: 16}
 
 
-         has_and_belongs_to_many :games
-         has_and_belongs_to_many :events
+  has_and_belongs_to_many :games
+  has_and_belongs_to_many :events, through: :events_users
+  has_many :events_users
 end

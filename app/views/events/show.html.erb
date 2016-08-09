@@ -5,3 +5,9 @@
 <%= @event.zip %> <br />
 <%= @event.description %> <br />
 <%# @event.hosts %>
+
+<% if current_user == @event.users.first %>
+    <%=   button_tag(type: 'button') do %>
+      <%= link_to "Destroy", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
+    <% end %>
+<% end %>
