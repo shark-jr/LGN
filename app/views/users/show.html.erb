@@ -1,4 +1,6 @@
 <%= @user.username %>
+<img src="<%= @user.profile_img%>" alt="profile pic" />
+
 <%= @user.first_name %>
 <%= @user.last_name %>
 <%= @user.email %>
@@ -13,6 +15,11 @@
 <%= @user.psn %>
 <%= @user.fb %>
 <%= @user.twitch %><br />
+
+<% @user.events.each do |event| %>
+  <%= event.name %>
+  <%= link_to "Event", event_path(event) %>
+<% end %>
 
 <% @games.each do |game|%>
   <table>
@@ -30,7 +37,7 @@
 
 <% if current_user %>
   <% if current_user.id == @user.id %>
-    <%= link_to "Edit", "#{current_user.id}/edit" %>
+    <%= link_to "Edit", edit_user_path(@user) %>
   <% end %>
 <% else %>
   <%= flash[:notice] = "Sign in to edit" %>

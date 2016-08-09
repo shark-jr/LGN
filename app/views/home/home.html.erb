@@ -1,0 +1,17 @@
+<h1>Links</h1>
+
+<%if !user_signed_in?%>
+  <%=link_to "Sign in", new_user_session_path%><br>
+  <%=link_to "Sign up", new_user_registration_path%><br>
+<%else%>
+  <%=link_to "Sign out", destroy_user_session_path, method: :delete%><br>
+<%end%>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= link_to "Locations", locations_path %>
+<%= link_to "List of users", users_path %>
+<%= link_to "Chat room", rooms_show_path %>
+<% if user_signed_in? %>
+  <%= link_to "New Event", new_event_path %>
+<% end %>

@@ -1,5 +1,7 @@
 <% @users.each do |user| %>
-
-<%= link_to  user.username, "users/#{user.id}"%>
+  <div class="user">
+  <img src="<%=user.profile_img%>" alt="avatar" />
+  <%= link_to  user.username, "users/#{user.id}"%>
+  </div>
 
 <% end %>

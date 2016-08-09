@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+
+  resources :events
+
   resources :locations
-  # TODO: Make home.html.erb and change root to home#index
-  root 'users#index'
+
+
+  root 'home#home'
   devise_for :users
   resources :users
   get 'locations/new' => 'locations#new'
