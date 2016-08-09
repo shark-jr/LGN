@@ -1,20 +1,20 @@
 <%= @user.username %>
-<img src="<%= @user.profile_img%>" alt="profile pic" />
-
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
-<%= @user.country %>
-<%= @user.zip %>
-<%= @user.address %>
-<%= @user.state %>
-<%= @user.bio %>
-<%= @user.dob %>
-<%= @user.steam %>
-<%= @user.xbox %>
-<%= @user.psn %>
-<%= @user.fb %>
-<%= @user.twitch %><br />
+<!-- <img src="<%= @user.profile_img%>" alt="profile pic" /> -->
+<%= @user.profile_img.url(:medium) %> <br>
+<%= @user.first_name %> <br>
+<%= @user.last_name %> <br>
+<%= @user.email %> <br>
+<%= @user.country %> <br>
+<%= @user.zip %> <br>
+<%= @user.address %> <br>
+<%= @user.state %> <br>
+<%= @user.bio %> <br>
+<%= @user.dob %> <br>
+<%= @user.steam %> <br>
+<%= @user.xbox %> <br>
+<%= @user.psn %> <br>
+<%= @user.fb %> <br>
+<%= @user.twitch %> <br>
 
 <% @user.events.each do |event| %>
   <%= event.name %>

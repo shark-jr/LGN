@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
- before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-    user_params.permit( :email, :password, :password_confirmation, :username, :zip)
+      user_params.permit( :email, :password, :password_confirmation, :username )
+    end
+
+    devise_parameter_sanitizer.for(:account_update) do |user_params|
+      user_params.permit(:email, :password, :password_confirmation, :username, :zip, :profile_img)
     end
   end
+
 end
