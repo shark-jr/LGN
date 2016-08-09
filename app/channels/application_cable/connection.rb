@@ -4,6 +4,9 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
+      # see_user = find_verified_user
+      # logger.add_tags 'ActionCable', see_user.email
+      # self.current_user = see_user
       self.current_user = find_verified_user
       logger.add_tags 'ActionCable', current_user.email
     end
