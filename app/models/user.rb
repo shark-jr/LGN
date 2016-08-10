@@ -12,4 +12,9 @@ class User < ApplicationRecord
 
          has_and_belongs_to_many :games
          has_and_belongs_to_many :events
+
+geocoded_by :ip_address,
+:latitude => :lat, :longitude => :lon
+after_validation :geocode
+
 end
