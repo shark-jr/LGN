@@ -12,14 +12,13 @@ class User < ApplicationRecord
 
 
   has_and_belongs_to_many :games
-<<<<<<< HEAD
-  has_and_belongs_to_many :events
+
+  # has_and_belongs_to_many :events
 
   has_attached_file :profile_img, :styles => { medium: "300x300#", thumb: "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :profile_img, :content_type => /\Aimage\/.*\Z/
 
-=======
   has_and_belongs_to_many :events, through: :events_users
   has_many :events_users
->>>>>>> 48b1586c309df889eaf49ffa001b941fd60182a7
+
 end
