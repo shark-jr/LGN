@@ -70,8 +70,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :description, :date, :time, :address, :city, :state, :zip, :country)
   end
   def only_host
-    unless @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id)
-      redirect_to event_path(@event)
+    unless @event.events_users.where(is_host: true, user_id: current_user.id).exists?
       # TODO: flash access denied message
     end
   end
