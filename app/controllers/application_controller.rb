@@ -1,18 +1,24 @@
 class ApplicationController < ActionController::Base
- before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-    user_params.permit( :email, :password, :password_confirmation, :username, :zip)
+      user_params.permit( :email, :password, :password_confirmation, :username )
+    end
+
+    devise_parameter_sanitizer.permit(:account_update) do |user_params|
+      user_params.permit(:email, :password, :password_confirmation, :username, :zip, :profile_img)
     end
   end
 
   private
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
+  # def current_user
+  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  # end
   helper_method :current_user
 
   Warden::Manager.after_authentication do |user, auth, opts|
@@ -24,4 +30,5 @@ class ApplicationController < ActionController::Base
     user.zip = location_based_on_ip.data['zip_code']
     user.save
   end
+
 end

@@ -2,7 +2,7 @@
 <html>
   <head>
     <!-- <title>LGN - LocalGamersNetwork</title> -->
-    <title><%= content_for?(:title) ? yield(:title) : 'LGN - LocalGamersNetwork' %></title>
+    <title><%= content_for?(:title) ? "LGN | #{yield(:title)}" : 'LGN | LocalGamersNetwork' %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
@@ -15,16 +15,45 @@
   </head>
 
   <body>
-    <!-- TODO: Take links out of here and put them in a header _partial  -->
-    <%if !user_signed_in?%>
-    <%=link_to "Sign in", new_user_session_path%><br>
-    <%=link_to "Sign up", new_user_registration_path%><br>
-    <%else%>
-    <%=link_to "Sign out", destroy_user_session_path, method: :delete%><br>
-    <%end%>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="wrapper">
 
-    <%= yield %>
+      <nav> <!-- Flex Parent -->
+        <ul class="title"> <!-- Flex ^ Child/Parent v -->
+          <li id="logo">
+            <%= link_to root_path  do %>
+              <div class="logo-box">
+                <%= image_tag "logos/ghost_grn.png", id: "logo" %>
+              </div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+            <!-- <h4>Local Gaming Network</h4> -->
+            <h2>LGN</h2>
+            <!-- Local Gaming Network -->
+            <% end %>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Events", events_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%#= link_to "Profile", user_path(current_user) %></li>
+        </ul>
+
+      </nav>
+
+      <!-- TODO: Take links out of here and put them in a header _partial  -->
+      <% if !user_signed_in? %>
+        <%= link_to "Sign in", new_user_session_path %><br>
+        <%= link_to "Sign up", new_user_registration_path %><br>
+      <% else %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

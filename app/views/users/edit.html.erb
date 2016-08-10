@@ -1,4 +1,4 @@
-<%= form_for current_user do |f| %>
+<%= form_for current_user, html: { multipart: true } do |f| %>
 
   <div class="field">
     <%= f.label :email %> <br />
@@ -6,7 +6,7 @@
   </div>
   <div class="field">
     <%= f.label :profile_img %> <br />
-    <%= f.text_field :profile_img %>
+    <%= f.file_field :profile_img %>
   </div>
   <div class="field">
     <%= f.label :first_name %> <br />
