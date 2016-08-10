@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160809192017) do
+=======
+ActiveRecord::Schema.define(version: 20160809150635) do
+>>>>>>> 48b1586c309df889eaf49ffa001b941fd60182a7
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160809192017) do
     t.integer "game_id"
   end
 
-  create_table "events_users", id: false, force: :cascade do |t|
+  create_table "events_users", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.boolean "is_host"

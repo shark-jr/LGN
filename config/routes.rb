@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  post 'events/:id' => 'events#going'
 
   root 'home#home'
   devise_for :users

@@ -5,3 +5,16 @@
 <%= @event.zip %> <br />
 <%= @event.description %> <br />
 <%# @event.hosts %>
+
+
+  <% if @event.users.include?(current_user) %>
+    <%= button_to "Bump dat", @event%>
+  <% else %>
+    <%= button_to "I'm going", @event%>
+  <% end %>
+
+
+<% if @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id) %>
+    <%= button_to "Edit Event", edit_event_path, method: :get %>
+    <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
+     <% end %>
