@@ -33,6 +33,8 @@ gem 'bootstrap'
 # Allow users to upload avatar images
 gem "paperclip", "~> 5.0.0"
 
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
