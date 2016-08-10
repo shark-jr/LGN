@@ -72,6 +72,7 @@ class EventsController < ApplicationController
   def only_host
     unless @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id)
       redirect_to event_path(@event)
+      # TODO: flash access denied message
     end
   end
   def set_event
