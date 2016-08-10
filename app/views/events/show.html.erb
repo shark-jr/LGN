@@ -6,8 +6,14 @@
 <%= @event.description %> <br />
 <%# @event.hosts %>
 
-<% if current_user == @event.users.first %>
-    <%=   button_tag(type: 'button') do %>
-      <%= link_to "Destroy", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
+
+  <% if @event.users.include?(current_user) %>
+    <%= button_to "Bump dat", @event%>
+  <% else %>
+    <%= button_to "I'm going", @event%>
+  <% end %>
+
+
+<% if @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id) %>
+    <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
     <% end %>
-<% end %>

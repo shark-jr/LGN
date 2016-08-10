@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :going]
 
   def new
     @event = Event.new
@@ -25,7 +25,12 @@ class EventsController < ApplicationController
   end
 
   def going
-    @event.users << current_user
+    if @event.users.include?(current_user)
+      @event.users.delete(current_user)
+    else
+      @event.users << current_user
+    end
+    redirect_to @event
   end
 
   def index
