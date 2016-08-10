@@ -18,3 +18,5 @@
     <%= button_to "Edit Event", edit_event_path, method: :get %>
     <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
      <% end %>
+
+     <%= button_to "Events", events_path, method: :get %>

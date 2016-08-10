@@ -1,6 +1,9 @@
+
+<%= link_to "Host an event", new_event_path %>  <br>
+
 <% @events.each do |event| %>
-  <%= event.name %> <br />
-  <%= event.city %> <br />
-  <%= event.state %> <br />
-  <%= event.zip %> <br /> <br />
+---------------------------------- <br>
+  <%= link_to event.name, event_path(event) %> <br />
+  <%= event.city %> <%= event.state %>, <%= event.zip %> <br /> <br />
+
 <% end %>
