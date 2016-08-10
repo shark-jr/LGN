@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :going]
 
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :going]
+  before_filter :only_host, only: [:edit, :update, :destroy]
   def new
     @event = Event.new
   end
@@ -68,7 +69,13 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :description, :date, :time, :address, :city, :state, :zip, :country)
   end
+  def only_host
+    unless @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id)
+      redirect_to event_path(@event)
+    end
+  end
   def set_event
     @event = Event.find(params[:id])
   end
+
 end
