@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def index
-      @users = User.all
+      @users = current_user.nearbys(2000) || User.near("Miami", 200)
     end
 
     def show
