@@ -1,0 +1,5 @@
+<%= form_tag("#{@event.id}/hosts", method: "post") do %>
+  <%= label_tag(:username, "Username:") %>
+  <%= text_field_tag(:username) %>
+  <%= submit_tag("Toggle Host") %>
+<% end %>
