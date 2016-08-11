@@ -15,14 +15,5 @@
   <%= @location.longitude %>
 </p>
 
-<h3>Nearby Users</h3>
-<ul>
-<% @users.each do |user| %>
-  <% user.nearbys(10).each do |near_user| %>
-    <li><%= link_to user.latitude, near_user %> (<%= near_user.distance.round(2) %> miles)</li>
-  <% end %>
-<% end %>
-</ul>
-
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
