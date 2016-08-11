@@ -1,0 +1,12 @@
+<h1>Games#show</h1>
+<p>Find me in app/views/games/show.html.erb</p>
+
+
+<div class="games-wrapper">
+  <ul id="gameImages" class="clean-list">
+    <% @hot_games.each do | game_img |%>
+      <li class="images image-frame"><img src="<%= game_img[:url] %>" alt=""></li>
+      <li class="images image-frame"><%= game_img[:name] %></li>
+    <% end %>
+  </ul>
+</div>

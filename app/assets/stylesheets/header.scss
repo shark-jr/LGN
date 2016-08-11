@@ -34,6 +34,7 @@ nav a {
 .title li {
   // flex: 1 1 600px;
   flex: 6 1 0;
+
 }
 .title #logo {
   flex: 1 1 0;
@@ -57,6 +58,12 @@ nav a {
   font-size: 2.4em;
   margin: 1.6rem 0 0 0;
   padding-left: 0;
+
+  text-shadow:
+  -3px -3px 0 #eee,
+  3px -3px 0 #eee,
+  -3px 3px 0 #eee,
+  3px 3px 0 #eee;
 }
 
 .menu {
