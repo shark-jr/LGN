@@ -13,4 +13,7 @@ class Event < ApplicationRecord
   validates :zip, presence: true, numericality: {only_integer: true}
   validates :country, presence: true
 
+
+
+
 end
