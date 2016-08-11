@@ -1,45 +1,32 @@
-<h2><%= @user.username %>'s Profile</h2>
+<% title "My Profile" %>
+
+<%= @user.username %>
 <!-- <img src="<%= @user.profile_img%>" alt="profile pic" /> -->
 <%= image_tag  @user.profile_img.url(:medium ) %> <br>
-<strong>Name:</strong>     <%= @user.first_name %> <%= @user.last_name %> <br>
-<strong>Bio:</strong> <%= @user.bio %> <br>
-<strong>Date of birth:</strong> <%= @user.dob %> <br>
+<%= @user.first_name %> <br>
+<%= @user.last_name %> <br>
+<%= @user.email %> <br>
+<%= @user.country %> <br>
+<%= @user.zip %> <br>
+<%= @user.address %> <br>
+<%= @user.state %> <br>
+<%= @user.bio %> <br>
+<%= @user.dob %> <br>
+<%= @user.steam %> <br>
+<%= @user.xbox %> <br>
+<%= @user.psn %> <br>
+<%= @user.fb %> <br>
+<%= @user.twitch %> <br>
 
-<strong>Address:  <%= @user.address %>
-          <%= @user.city %> <br>
-          <%= @user.state %>
-          <%= @user.zip %> <br>
-          <%= @user.country %> <br>
-<strong>Steam account:</strong> <%= @user.steam %> <br>
-<strong>xbox live:</strong> <%= @user.xbox %> <br>
-<strong>Playstation network:</strong> <%= @user.psn %> <br>
-<strong>Facebook Profile:</strong> <%= @user.fb %> <br>
-<strong>Twitch Profile:</strong> <%= @user.twitch %> <br>
-<h3>Events</h3>
-
-<h4> Attending </h4>
-    <% @user.events.each do |event| %>
-      <% if @user.events_users.where(is_host: nil).map do |x| %>
-          <% x.event_id %>
-        <% end.include?(event.id) %>
-        <%= link_to event.name, event_path(event) %> |
-      <% end %>
-    <% end %>
-
-<h4> Hosting </h4>
-  <% @user.events.each do |event| %>
-    <% if @user.events_users.where(is_host: true).map do |x| %>
-      <% x.event_id %>
-      <% end.include?(event.id) %>
-    <%= link_to event.name, event_path(event) %> |
-    <% end %>
-  <% end %>
-
+<% @user.events.each do |event| %>
+  <%= event.name %>
+  <%= link_to "Event", event_path(event) %>
+<% end %>
 
 <% @games.each do |game|%>
   <table>
     <th>
-      Games
+      Game
     </th> <br />
     <tbody>
       <td><br />

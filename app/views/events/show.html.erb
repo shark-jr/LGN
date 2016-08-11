@@ -1,14 +1,18 @@
-<h1>  <%= @event.name %> </h1>
+<% title "Event Information" %>
+<h1>Event Information</h1>
+
+<h2>  <%= @event.name %> </h2>
 <%= @event.address %> <br />
 <%= @event.city %> <br />
 <%= @event.state %> <br />
 <%= @event.zip %> <br />
-<%= @event.description %> <br />
-<%# @event.hosts %>
-
+Description: <%= @event.description %> <br />
+Hosts: <% @event.events_users.where(is_host: true).each do |hosts|%>
+  <%= User.find(hosts.user_id).username %>
+<% end %>
 
   <% if @event.users.include?(current_user) %>
-    <%= button_to "Bump dat", @event%>
+    <%= button_to "I can't make it", @event%>
   <% else %>
     <%= button_to "I'm going", @event%>
   <% end %>
