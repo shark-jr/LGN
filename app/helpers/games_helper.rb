@@ -15,28 +15,33 @@ module GamesHelper
                   url: game["game"]["box"]["large"]}
                 end
 
-    shit_list = ["Gaming Talk Shows",
+    shit_list = [
+                "Abzû",
+                "Music",
                 "Poker",
+                "Retro",
                 "Creative",
                 "Pictionary",
-                "Gal Gun: Double Peace",
-                "Music",
-                "Draw Something",
-                "Retro",
-                "This Is the Police",
-                "Social Eating",
+                "Board Games",
                 "Casino Games",
-                "Twitch",
+                "Pokémon Dash",
                 "Twitch Plays",
-                "Abzû",
-                "Classroom Aquatic",
                 "Winning Putt",
+                "Dragon Ball Z",
+                "Social Eating",
+                "Games + Demos",
+                "Draw Something",
+                "FIFA Manager 13",
+                "Classroom Aquatic",
+                "Gaming Talk Shows",
+                "Super Smash Bros.",
+                "This Is the Police",
+                "Gal Gun: Double Peace",
+                "Golf With Your Friends",
                 "Doorways: Holy Mountains of Flesh",
                 "Phantasmagoria: A Puzzle of Flesh",
-                "Board Games",
-                "FIFA Manager 13",
                 "Spider-Man and the X-Men: Arcade's Revenge",
-                "Dragon Ball Z"]
+                "London 2012 - The Official Video Game of the Olympic Games"]
     shit_list = shit_list.map do |item|
       item.downcase
     end

@@ -6,6 +6,10 @@ class GamesController < ApplicationController
     @hot_games = GamesHelper.hot_games
   end
 
+  def add_to_user
+    
+  end
+
     # def search # get
     # end
     #
