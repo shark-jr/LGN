@@ -25,7 +25,7 @@ module GamesHelper
                 "Retro",
                 "This Is the Police",
                 "Social Eating",
-                "Casino",
+                "Casino Games",
                 "Twitch",
                 "Twitch Plays",
                 "Abzû",
@@ -34,6 +34,7 @@ module GamesHelper
                 "Doorways: Holy Mountains of Flesh",
                 "Phantasmagoria: A Puzzle of Flesh",
                 "Board Games",
+                "FIFA Manager 13",
                 "Spider-Man and the X-Men: Arcade's Revenge",
                 "Dragon Ball Z"]
     shit_list = shit_list.map do |item|

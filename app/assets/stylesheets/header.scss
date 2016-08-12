@@ -1,3 +1,5 @@
+@import "vars";
+
 nav h4 {
   font-family: "Orbitron", sans-serif;
   font-size: 1.6em;
@@ -22,8 +24,8 @@ nav a {
   text-decoration: none;
   text-align: center;
   &:hover{
-    // color: #91DC5A;
-    color: #FD6C0A;
+    color: $blue-color;
+    // color: #FD6C0A;
   }
 }
 
@@ -50,7 +52,7 @@ nav a {
 .title h2{
   // color: #91DC5A;
   // color: #FD6C0A;
-  color: #25CBD5;
+  color: $blue-color;
   // color: #fff;
   // font-family: "Orbitron", sans-serif;
   font-family: 'Press Start 2P', cursive;
