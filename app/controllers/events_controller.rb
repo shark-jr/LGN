@@ -43,7 +43,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    # @events = Event.all
+    @events = Event.near([current_user.latitude, current_user.longitude], 300) || Event.near(current_user.city, 300)
   end
 
   def show
