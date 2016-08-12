@@ -3,10 +3,12 @@
 
 <div class="games-wrapper">
   <ul id="game_images" class="clean-list">
-    <% @hot_games.each do | game_img |%>
+    <% @hot_games.each do | game | %>
       <li class="game-image cap-bot">
-        <img src="<%= game_img[:url] %>" alt="<%= game_img[:name] %>">
-        <span><%= game_img[:name] %></span>
+        <%= link_to image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user" %>
+        <!-- <%#= link_to image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user", method: :post %> -->
+          <!-- <img src="<%#= game[:url] %>" alt="<%#= game[:name] %>"> -->
+        <!-- <span><%#= game_img[:name] %></span> -->
       </li>
     <% end %>
   </ul>

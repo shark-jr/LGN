@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  post 'events/:id/hosts'    =>  'events#toggle_host'
+  post 'events/:id/hosts' => 'events#toggle_host'
 
   # get 'games/show'
   get 'games' => 'games#show'
+  # post 'game_added/:id' => 'games#add_to_user', as: "game_added"
+  post 'games/:id' => 'games#add_to_user'
 
   resources :events
 

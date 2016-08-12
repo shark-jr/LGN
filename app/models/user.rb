@@ -12,7 +12,8 @@ class User < ApplicationRecord
   validates :zip, presence: true,
             numericality: {only_integer: true}
 
-  has_and_belongs_to_many :games
+  has_many :games_users
+  has_many :games, through: :games_users
 
   # has_and_belongs_to_many :events
 
