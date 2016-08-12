@@ -12,13 +12,21 @@ Hosts: <% @event.events_users.where(is_host: true).each do |hosts|%>
 <% end %>
 
   <% if @event.users.include?(current_user) %>
-    <%= button_to "I can't make it", @event%>
+
+    <% if (@event.events_users.where(is_host: true).length ==1) && (@event.events_users.where(is_host: true, user_id: current_user.id).exists?) %>
+      <%= button_to "I can't make it", @event, data: {confirm: 'You are the last host, so leaving this event will destroy it. Are you sure you want to leave?'}%>
+
+    <% else %>
+      <%= button_to "I can't make it", @event%>
+
+    <% end %>
   <% else %>
     <%= button_to "I'm going", @event%>
+
   <% end %>
 
 
-<% if @event.events_users.where(is_host: true).map{|x| x.user_id}.include?(current_user.id) %>
+<% if @event.events_users.where(is_host: true, user_id: current_user.id).exists? %>
     <%= button_to "Edit Event", edit_event_path, method: :get %>
     <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
     <%= render 'host_form' %>

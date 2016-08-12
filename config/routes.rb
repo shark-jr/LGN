@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :locations
+
 
   post 'events/:id' => 'events#going'
 
