@@ -22,6 +22,8 @@ module GamesHelper
                 "Foul Play",
                 "Pictionary",
                 "Board Games",
+                "MechWarrior",
+                "BeamNG.Drive",
                 "Casino Games",
                 "Pokémon Dash",
                 "Twitch Plays",
@@ -32,6 +34,7 @@ module GamesHelper
                 "Draw Something",
                 "FIFA Manager 13",
                 "Worms Clan Wars",
+                "Worms Armageddon",
                 "Classroom Aquatic",
                 "Gaming Talk Shows",
                 "Super Smash Bros.",
@@ -40,8 +43,15 @@ module GamesHelper
                 "Golf With Your Friends",
                 "Worms: The Director's Cut",
                 "Uncharted 2: Among Thieves",
+                "Pokémon XD: Gale of Darkness",
+                "Contradiction: Spot The Liar!",
+                "The Elder Scrolls II: Daggerfall",
+                "Tom Clancy's Rainbow 6: Patriots",
                 "Doorways: Holy Mountains of Flesh",
                 "Phantasmagoria: A Puzzle of Flesh",
+                "Dungeon Nightmares II : The Memory",
+                "Ostrich Island: Escape From Paradise",
+                "Professor Layton and the Curious Village",
                 "Spider-Man and the X-Men: Arcade's Revenge",
                 "London 2012 - The Official Video Game of the Olympic Games"]
     shit_list = shit_list.map do |item|
@@ -55,5 +65,5 @@ module GamesHelper
     end.compact
    game_list
  end
- 
+
 end

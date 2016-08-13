@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      @games = @user.games.all
+      @games = @user.games_users.all
     end
 
     def edit

@@ -1,15 +1,28 @@
-<% title "Hot Games" %>
-<h1>Hot Games</h1>
+<% title "Popular Games" %>
 
 <div class="games-wrapper">
+  <h1>Popular Games</h1>
   <ul id="game_images" class="clean-list">
-    <% @hot_games.each do | game | %>
-      <li class="game-image cap-bot">
-        <%= link_to image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user" %>
-        <!-- <%#= link_to image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user", method: :post %> -->
-          <!-- <img src="<%#= game[:url] %>" alt="<%#= game[:name] %>"> -->
-        <!-- <span><%#= game_img[:name] %></span> -->
-      </li>
+    <% @games.each do | game | %>
+      <div class="game-frame shadow-1">
+        <li class="game-image cap-bot">
+          <%= link_to image_tag(game.image, alt: game.title) %>
+          <p><%= game.title %></p>
+        </li>
+      </div>
     <% end %>
   </ul>
+  <div class="clear-fix"></div>
 </div>
+
+
+
+
+<%#= button_to
+content_tag(image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user" %>
+
+<!-- , add_game_path(@game), method: :post %> -->
+<%#= link_to image_tag(game[:url], alt: game[:name]), controller: "games", action: "add_to_user" %>
+<%#= link_to image_tag(game[:url], alt: game[:name]), {controller: "games", action: "add_to_user"}, method: :post %>
+<!-- <img src="<%#= game[:url] %>" alt="<%#= game[:name] %>"> -->
+<!-- <span><%#= game_img[:name] %></span> -->
