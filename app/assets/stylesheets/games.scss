@@ -2,49 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .games-wrapper {
-  // display: flex;
-  // justify-content: center;
   text-align: center;
-  margin: 4rem 10%;
-  width: 80%
+  margin: 0 auto;
+  width: 80%;
 }
 
 a {
   text-decoration: none;
 }
 
-#games_images {
-}
-.game-frame {
-  box-sizing: border-box;
-  float: left;
-  height: 60%;
-  width: 14rem;
-  overflow: hidden;
-  margin: 0 2rem 2rem 0;
+[id=game_images] {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 li.game-image {
-  box-sizing: border-box;
-  display: inline-block;
-  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+  // position: relative;
   overflow: hidden;
+  margin: 1.26rem;
+  width: 28%;
+  max-width: 215px;
 
-  width: 14rem;
   &:hover p {
     opacity: 1;
     left: 0;
   }
 }
+.game-frame {
+  // height: 60%;
+  // width: 100%;
+  overflow: hidden;
+  // margin: 0 2rem 2rem 0;
+  margin: -3px 0 0 0;
+  position:relative;
+    bottom: -3px;
+  a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    // position: relative;
+    // bottom: -3px;
+
+  }
+}
+
+
+
 
 .game-image img {
-  width: 14rem;
+  height: 100%;
+  max-height: 300px;
+  width: auto;
+  // max-width: 85%;
+  // width: 100%;
 }
 
 .game-image p  {
   background: rgba(0,0,0,0.75);
   color: white;
-  display: inline-block;
+  // display: inline-block;
   margin: 0 0 2px 0;
   padding: 10px 10%;
   text-align: center;
@@ -57,7 +86,7 @@ li.game-image {
   -moz-transition:    all 0.6s ease;
   -o-transition:      all 0.6s ease;
 
-  width: 80%;
+  width: 100%;
   word-wrap: normal;
 }
 
@@ -75,38 +104,30 @@ li.game-image {
   bottom: 0;
 }
 
+.game-frame:before {
+  content: "+";
+  color: black;
+  font-weight: bolder;
+  position: absolute;
+    bottom: 12px;
+    right: 12px;
+  background: rgba(255,255,255,0.75);
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius:    12px;
+  border-radius:         12px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  /* Only Fx 4 supporting transitions on psuedo elements so far... */
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  opacity: 0.75;
+}
 
-//
-// figure:hover figcaption {
-//   opacity: 1;
-//   left: 0;
-// }
-
-
-
-
-// .game-image:before {
-//   content: "+";
-//   color: black;
-//   font-weight: bolder;
-//   position: absolute;
-//   background: rgba(255,255,255,0.75);
-//   width: 24px;
-//   height: 24px;
-//   -webkit-border-radius: 12px;
-//   -moz-border-radius:    12px;
-//   border-radius:         12px;
-//   text-align: center;
-//   font-size: 14px;
-//   line-height: 24px;
-//   /* Only Fx 4 supporting transitions on psuedo elements so far... */
-//   -webkit-transition: all 0.6s ease;
-//   -moz-transition: all 0.6s ease;
-//   -o-transition: all 0.6s ease;
-//   opacity: 0.75;
-// }
-
-game-image:hover:before {
+.game-frame:hover:before {
   opacity: 0;
 }
 
@@ -119,4 +140,25 @@ game-image:hover:before {
 
 .shadow-1:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+@media screen and (max-width: 650px) {
+  [id=game_images] {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 auto;
+  }
+
+  li.game-image {
+    // flex: 1 0 100%;
+    width: 100%;
+  }
 }

@@ -4,12 +4,12 @@
   <h1>Popular Games</h1>
   <ul id="game_images" class="clean-list">
     <% @games.each do | game | %>
-      <div class="game-frame shadow-1">
-        <li class="game-image cap-bot">
+        <li class="game-image cap-bot shadow-1">
+          <div class="game-frame ">
           <%= link_to image_tag(game.image, alt: game.title) %>
           <p><%= game.title %></p>
+          </div>
         </li>
-      </div>
     <% end %>
   </ul>
   <div class="clear-fix"></div>

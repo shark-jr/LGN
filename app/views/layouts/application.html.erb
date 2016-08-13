@@ -5,7 +5,7 @@
     <title><%= content_for?(:title) ? "LGN | #{yield(:title)}" : 'LGN | LocalGamersNetwork' %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -28,48 +28,54 @@
 
   <body>
     <div class="wrapper">
+      <div class="main">
 
-      <nav> <!-- Flex Parent -->
-        <ul class="title"> <!-- Flex ^ Child/Parent v -->
-          <li id="logo">
-            <%= link_to root_path  do %>
-              <div class="logo-box">
-                <%#= image_tag "logos/ghost_grn.png", id: "logo" %>
-                <%= image_tag "logos/joystick_solid_blue.png", id: "logo" %>
-              </div>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to root_path do %>
-            <!-- <h4>Local Gaming Network</h4> -->
-            <h2>LGN</h2>
-            <!-- Local Gaming Network -->
-            <% end %>
-          </li>
-        </ul>
-        <ul class="menu">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Games", games_path %></li>
-          <li><%= link_to "Events", events_path %></li>
-          <li><%= link_to "Users", users_path %></li>
-          <li><%= link_to "Chat", chat_path %></li>
+        <nav> <!-- Flex Parent -->
+          <ul class="title"> <!-- Flex ^ Child/Parent v -->
+            <li id="logo">
+              <%= link_to root_path  do %>
+                <div class="logo-box">
+                  <%#= image_tag "logos/ghost_grn.png", id: "logo" %>
+                  <%= image_tag "logos/joystick_solid_blue.png", id: "logo" %>
+                </div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+              <!-- <h4>Local Gaming Network</h4> -->
+              <h2>LGN</h2>
+              <!-- Local Gaming Network -->
+              <% end %>
+            </li>
+          </ul>
+          <ul class="menu">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Games", games_path %></li>
+            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Chat", chat_path %></li>
 
-          <li><%= link_to "Profile", user_path(current_user) if user_signed_in? %></li>
-        </ul>
+            <li><%= link_to "Profile", user_path(current_user) if user_signed_in? %></li>
+          </ul>
 
-      </nav>
+        </nav>
 
-      <!-- TODO: Take links out of here and put them in a header _partial  -->
-      <% if !user_signed_in? %>
-        <%= link_to "Sign in", new_user_session_path %><br>
-        <%= link_to "Sign up", new_user_registration_path %><br>
-      <% else %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
-      <% end %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+        <!-- TODO: Take links out of here and put them in a header _partial  -->
+        <% if !user_signed_in? %>
+          <%= link_to "Sign in", new_user_session_path %><br>
+          <%= link_to "Sign up", new_user_registration_path %><br>
+        <% else %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
+        <% end %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-      <%= yield %>
+        <%= yield %>
+      </div>
+      <footer>
+        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
+        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
+      </footer>
     </div>
   </body>
 </html>
