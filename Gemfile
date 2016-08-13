@@ -42,6 +42,7 @@ group :development, :test do
   # Generate fake user infomation
   gem 'faker', '~> 1.6', '>= 1.6.5'
   gem 'hirb'
+  gem "rails-erd"
 end
 
 group :development do

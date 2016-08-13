@@ -17,9 +17,17 @@ class GamesController < ApplicationController
   end
 
   def add_to_user
-    # @game = Game.find_or_create_by(title: params[:game][:name])
-    @game = Game.find_or_create_by(title: params[:name])
-    render action: :show
+    # @games = Game.all
+    # game_id = params.keys.map do | key |
+    #   if key.include?("gameId")
+    #     params[key]
+    #   end
+    # end
+    # byebug
+    @games_user = GamesUser.create(game_id: params[:game_id].to_i, user_id: current_user[:id])
+    @games_user.save
+    # @game = Game.find_or_create_by(title: params[:name])
+    redirect_to games_path
   end
 
     # def search # get
@@ -33,5 +41,10 @@ class GamesController < ApplicationController
     # def show_results
     #   @search_results
     # end
+
+  private
+    def games_user_params
+      params.require(:games_user).permit(:game_id)
+    end
 
 end

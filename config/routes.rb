@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # get 'games/show'
   get 'games' => 'games#show'
-  post 'games' => 'games#add_to_user', as: "add_game"
+
+  post 'add_game' => 'games#add_to_user'#, as: "add_game"
   # post 'game_added' => 'games#add_to_user', as: "game_added"
 
   resources :events
