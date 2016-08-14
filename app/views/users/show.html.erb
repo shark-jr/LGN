@@ -23,6 +23,7 @@
   <%= link_to "Event", event_path(event) %>
 <% end %>
 
+<<<<<<< HEAD
 <% @games.each do |game|%>
   <table>
     <th>
@@ -30,11 +31,17 @@
     </th> <br />
     <tbody>
       <td><br />
-          <%= game.title %> <br />
-        <img src="<%=game.image%>" alt="game logo" width="100px"/>
+        <%# temp fix here  %>
+          <%= Game.find_by(id: game.game_id).title %> <br />
+        <img src="<%=Game.find_by(id: game.game_id).image%>" alt="game logo" width="100px"/>
       </td>
     </tbody>
   </table>
+=======
+<% @users_games.each do |game|%>
+<%= game.title %> <br />
+<!-- <img src="<%#game.image%>" alt="game logo" width="100px"/> <br> -->
+>>>>>>> 82d3c5c6c324608577cae21a7a1b60aa52c3582a
 <% end %>
 
 <div>
