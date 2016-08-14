@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
@@ -8,6 +9,7 @@ Rails.application.configure do
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
       s3_region: ENV.fetch('AWS_REGION'),
     }
+
   }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
