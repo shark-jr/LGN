@@ -6,7 +6,12 @@ class UsersController < ApplicationController
     end
 
     def show
-      @games = @user.games_users.all
+      @users_games = []
+      @games_user_records = GamesUser.where(user_id: current_user).all
+      @games_user_records.each do |record|
+        @users_games << Game.find(record.game_id)
+      end
+      @users_games
     end
 
     def edit

@@ -50,6 +50,7 @@ module GamesHelper
                 "Human: Fall Flat",
                 "Classroom Aquatic",
                 "Gaming Talk Shows",
+                "GoldenEye: Source",
                 "Hatoful Boyfriend",
                 "Micro Machines V3",
                 "Super Smash Bros.",
