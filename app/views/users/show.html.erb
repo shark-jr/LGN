@@ -12,11 +12,17 @@
 <%= @user.state %> <br>
 <%= @user.bio %> <br>
 <%= @user.dob %> <br>
-<%= @user.steam %> <br>
-<%= @user.xbox %> <br>
-<%= @user.psn %> <br>
-<%= @user.fb %> <br>
-<%= @user.twitch %> <br>
+
+
+  Steam Profile URL: <%= link_to @user.steam, "http://steamcommunity.com/id/#{@user.steam}" %> <br>
+Xbox Gamer Tag URL:
+<% if @user.xbox %>
+<%=link_to @user.xbox, "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).gsub(" ", "+")}" %> <br>
+<% end %>
+
+
+PlayStation Network URL: <%= link_to @user.psn, "https://my.playstation.com/#{@user.psn}" %> <br>
+Twitch Profile URL: <%= link_to @user.twitch, "https://www.twitch.tv/#{@user.twitch}/profile" %> <br>
 
 <% @user.events.each do |event| %>
   <%= event.name %>
