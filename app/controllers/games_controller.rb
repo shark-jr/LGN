@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     @games
   end
 
-  def
+  def add_to_user
     @games_user = GamesUser.create(game_id: params[:game_id].to_i, user_id: current_user[:id])
     @games_user.save
     redirect_to games_path
