@@ -30,8 +30,9 @@
     </th> <br />
     <tbody>
       <td><br />
-          <%= game.title %> <br />
-        <img src="<%=game.image%>" alt="game logo" width="100px"/>
+        <%# temp fix here  %>
+          <%= Game.find_by(id: game.game_id).title %> <br />
+        <img src="<%=Game.find_by(id: game.game_id).image%>" alt="game logo" width="100px"/>
       </td>
     </tbody>
   </table>
