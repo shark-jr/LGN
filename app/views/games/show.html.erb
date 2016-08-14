@@ -8,7 +8,8 @@
           <li class="game-image cap-bot shadow-1">
             <div class="game-frame ">
             <!-- <%#= link_to image_tag(game.image, alt: game.title) %> -->
-            <input type="image" onClick="$('input[name=game_id]').val('<%= game.id %>');$('form').submit();" src="<%= game.image %>" alt="<%= game.title %>" />
+            <input type="image" src="<%= game.image %>" alt="<%= game.title %>"
+                    onClick="$('input[name=game_id]').val('<%= game.id %>');$('form').submit();"  />
             <%= hidden_field_tag :game_id %>
             <!-- <input type="hidden" id="gameId" name="gameId" value="none" /> -->
             <!-- <textarea name="test" rows="8" cols="40">Things and stuff</textarea> -->

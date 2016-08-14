@@ -23,18 +23,9 @@
   <%= link_to "Event", event_path(event) %>
 <% end %>
 
-<% @games.each do |game|%>
-  <table>
-    <th>
-      Game
-    </th> <br />
-    <tbody>
-      <td><br />
-          <%= game.title %> <br />
-        <img src="<%=game.image%>" alt="game logo" width="100px"/>
-      </td>
-    </tbody>
-  </table>
+<% @users_games.each do |game|%>
+<%= game.title %> <br />
+<!-- <img src="<%#game.image%>" alt="game logo" width="100px"/> <br> -->
 <% end %>
 
 <div>
