@@ -13,7 +13,7 @@
 <%= @user.bio %> <br>
 <%= @user.dob %> <br>
 <%= @user.steam %> <br>
-<%= @user.xbox %> <br>
+<%=link_to @user.xbox, "https://account.xbox.com/en-US/Profile?GamerTag=#{(@user.xbox).gsub(" ", "+")}" %> <br>
 <%= @user.psn %> <br>
 <%= @user.fb %> <br>
 <%= @user.twitch %> <br>

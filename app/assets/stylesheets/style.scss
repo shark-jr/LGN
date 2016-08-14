@@ -53,3 +53,23 @@ body {
   list-style: none;
   padding: 0;
 }
+
+
+
+/*----------------User-Auth-Bar----------------*/
+
+.user-auth-bar {
+  background-color: lighten($header-bkgnd, 10%);
+  height: 1.6rem;
+  // font-family: "Lato", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  a {
+    color: #eee;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-transform: capitalize;
+
+  }
+}
