@@ -27,7 +27,10 @@ Rails.application.configure do
   # config.assets.compile = false
   config.action_mailer.default_url_options = { :host => 'https://lgnet.heroku.com' }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :bucket => ENV[S3_BUCKET]
+  }
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
