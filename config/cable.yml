@@ -6,4 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://:lgnet_redis@redis-18120.c8.us-east-1-3.ec2.cloud.redislabs.com:18120
+  url: redis://h:p9c3v093bsmpdp9d2dfbdk6412p@ec2-54-163-236-211.compute-1.amazonaws.com:12359
