@@ -23,7 +23,7 @@
   <%= link_to "Event", event_path(event) %>
 <% end %>
 
-
+<%# Game.find_by(id: game.game_id) possible quick fix %>
 <% @games.each do |game|%>
   <table>
     <th>
@@ -31,9 +31,9 @@
     </th> <br />
     <tbody>
       <td><br />
-        <%# temp fix here  %>
-          <%= Game.find_by(id: game.game_id).title %> <br />
-        <img src="<%=Game.find_by(id: game.game_id).image%>" alt="game logo" width="100px"/>
+
+          <%= game.title %> <br />
+        <img src="<%= game.image%>" alt="game logo" width="100px"/>
       </td>
     </tbody>
   </table>
