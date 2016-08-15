@@ -12,8 +12,6 @@
     <!-- Google-Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900'
           rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900'
-          rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900'
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Press+Start+2P'
@@ -64,14 +62,16 @@
 
         <!-- TODO: Take links out of here and put them in a header _partial  -->
         <div class="user-auth-bar">
+          <ul class="clean-list">
+            <li class="notice"><%= notice %></li>
+            <li class="alert"><%= alert %></li>
           <% if !user_signed_in? %>
-            <%= link_to "Sign in", new_user_session_path %><br>
-            <%= link_to "Sign up", new_user_registration_path %><br>
+            <li><%= link_to "Sign in", new_user_session_path %></li><span>or</span>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% else %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          </ul>
         </div>
 
         <%= yield %>
