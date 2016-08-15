@@ -138,6 +138,7 @@
 }
 
 
+
 /*----------------Side-Bar----------------*/
 .chat-side-bar {
   display: flex;
@@ -191,7 +192,17 @@
   overflow: scroll;
   overflow-x: hidden;
   word-wrap: break-word;
-
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: #cccccc;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: gray;
+  }
 }
 
 /*----------------Text-Input----------------*/
@@ -234,11 +245,11 @@
   position: absolute;
   left: 0;
   display: block;
-  border-radius: 0.2rem;
-  width: 36px;
-  height: 36px;
-  background-image: url(http://findicons.com/icon/download/102283/fh02/300/png);
-  background-size: cover;
+  img {
+    // border-radius: 0.2rem;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .message-username {

@@ -1,10 +1,13 @@
 <div class="message">
   <!-- TODO: add <%#= img_tag "#{@user.avatar}" %> to link below -->
-  <a href="<%= user_path(message.user) %>" class="message-profile-pic"></a>
+  <!-- <%#= image_tag  @user.profile_img.url(:thumb ) %> -->
+  <a href="<%= user_path(message.user) %>" class="message-profile-pic">
+    <%= image_tag  message.user.profile_img.url(:thumb ) %>
+  </a>
   <%= link_to message.user.username, user_path(message.user), class: "message-username" %>
-  
-  <span class="message_timestamp">
-    <%= message.created_at %>
+
+  <span class="message-timestamp">
+    <%= message.created_at.strftime("%H:%M") %>
   </span>
   <span class="message-star"></span>
   <span class="message-content">
