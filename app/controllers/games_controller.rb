@@ -22,6 +22,10 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def remove_from_user
+    @games_user.delete
+  end
+
   private
     def games_user_params
       params.require(:games_user).permit(:game_id)
