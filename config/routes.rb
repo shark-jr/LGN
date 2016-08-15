@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # get 'games/show'
   get 'games' => 'games#show'
 
+  delete 'users/:id/:game_id' => 'users#remove_game'
+
   post 'add_game' => 'games#add_to_user'#, as: "add_game"
   # post 'game_added' => 'games#add_to_user', as: "game_added"
 

@@ -4,6 +4,16 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    }
+
+  }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -25,7 +35,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
   # config.assets.compile = false
-  config.action_mailer.default_url_options = { :host => 'http://www.lgnet.co' }
+  config.action_mailer.default_url_options = { :host => 'https://www.lgnet.co' }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -37,7 +47,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://lgnet.herokuapp.com/cable'
+  config.action_cable.url = 'wss://www.lgnet.co/cable'
   config.action_cable.allowed_request_origins = [ 'http://www.lgnet.co', /http:\/\/example.*/ ]
   # config.web_socket_server_url = "wss://lgnet.herokuapp.com/"
 

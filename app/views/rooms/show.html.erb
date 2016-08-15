@@ -1,14 +1,14 @@
 <% content_for :title, 'Main Chat' %>
-
-<div class="chat-container"><!-- ********| MAIN-FLEX-CONTAINER |******** -->
-
-  <div class="chat-side-bar">  <!-- ********| Main Flex Col-1 |******** -->
+<!-- ********| MAIN-FLEX-CONTAINER |******** -->
+<div class="chat-container">
+  <!-- ********| Main Flex Col-1 |******** -->
+  <div class="chat-side-bar">
     <div class="team-menu">LocalGamersNetwork</div>
     <div class="chat-users-list">Users?</div>
 
   </div>
-
-  <div class="chat-messages-area">  <!-- ********| Main Flex Col-2 |******** -->
+  <!-- ********| Main Flex Col-2 |******** -->
+  <div class="chat-messages-area">
     <div class="message-history" id="messages">
       <!-- TODO: change @messages to display username instead of email -->
       <%= render @messages %>
