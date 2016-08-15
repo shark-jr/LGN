@@ -1,20 +1,30 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :remove_game]
 
     def index
       @users = current_user.nearbys(25) || User.near("Miami", 200)
     end
-
     def show
       @users_games = []
-      @games_user_records = GamesUser.where(user_id: current_user).all
+      @games_user_records = GamesUser.where(user_id: current_user)
       @games_user_records.each do |record|
         @users_games << Game.find(record.game_id)
       end
       @users_games
     end
 
+
     def edit
+    end
+
+    def remove_game
+      @games_user_records = GamesUser.where(user_id: current_user).all
+      if @user == current_user
+        @games_user_records.find_by(game_id: params[:game_id]).delete
+      else
+        flash[:alert]= "That's not your account..."
+      end
+      redirect_to @user
     end
 
     def update

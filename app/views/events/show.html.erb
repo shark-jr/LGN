@@ -28,7 +28,7 @@ Hosts: <% @event.events_users.where(is_host: true).each do |hosts|%>
 
 <% if @event.events_users.where(is_host: true, user_id: current_user.id).exists? %>
     <%= button_to "Edit Event", edit_event_path, method: :get %>
-    <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure?'}%>
+    <%=   button_to "Delete Event", @event, method: :delete, data: {confirm: 'Are you sure you want to delete this event?'}%>
     <%= render 'host_form' %>
      <% end %>
 
