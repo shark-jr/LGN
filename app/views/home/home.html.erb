@@ -8,13 +8,20 @@
 
 <% end %>
 
+
+
+
 <h3>Nearby Users</h3><br>
 <% User.all[0..3].each do |user| %>
   <div class="user">
-    <%= image_tag user.profile_img.url(:thumb), alt: "#{user.username} avatar" %>
+    <%= image_tag user.profile_img.url(:thumb), alt: "#{user.username} avatar" %><br>
     <%= link_to  user.username, "users/#{user.id}"%>
   </div>
 <% end %>
+
+
+
+
 <h3>Hot Games</h3><br>
   <div class="games-wrapper">
     <h3><%= link_to "Popular Games", "/games" %></h3>
